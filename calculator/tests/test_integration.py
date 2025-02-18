@@ -16,9 +16,11 @@ class TestIntegration:
         response = client.get(f"/equation/{operation}/{val1}/{val2}")
         assert response.status_code == 200
         assert response.json()["result"] == expected
+     
 
     def test_square_root(self, client):
         """Test square root operation (single parameter)."""
         response = client.get("/equation/square_root/16")
         assert response.status_code == 200
         assert response.json()["result"] == 4.0
+      
