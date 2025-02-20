@@ -1,0 +1,14 @@
+.main__div {
+    display: flex;
+    align-items: center;
+    padding: 10%;
+    flex-direction: column;
+}
+
+.calc__div {
+   padding: 2%;
+}
+
+.algebra__div {
+    padding: 2%;
+}

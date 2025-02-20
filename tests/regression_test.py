@@ -16,13 +16,13 @@ class TestRegression:
         response_json = response.json()
         assert expected_key in response_json  # Ensure 'result' is in the response
 
-    @pytest.mark.parametrize("val1, val2, operation, result, expected_key", [
-        ("5x", "5x", "multiply", 25, "result: x = "),
-        ("2x", "3x", "add", 5, "result: x = ")
+    @pytest.mark.parametrize("val1, var1, val2, var2, operation, result, expected_key", [
+        (5, "x", 5, "x", "multiply", 25, "result"),
+        (2, "x", 3, "x", "add", 5, "result")
     ])
-    def test_algebra(self, client, val1, val2, operation, result, expected_key):
-        """Test the /algebra/{val1}/{val2}/{operation}/{result} endpoint for all operations"""
-        response = client.get(f"/algebra/{val1}/{val2}/{operation}/{result}")
+    def test_algebra(self, client, val1, var1, val2, var2, operation, result, expected_key):
+        """Test the /algebra/{val1}/{var1}/{val2}/{var2}/{operation}/{result} endpoint for all operations"""
+        response = client.get(f"/algebra/{val1}/{var1}/{val2}/{var2}/{operation}/{result}")
         assert response.status_code == 200
         response_json = response.json()
         assert expected_key in response_json  # Check if the response contains 'result'
