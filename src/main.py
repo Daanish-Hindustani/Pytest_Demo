@@ -28,7 +28,6 @@ async def calculate(val1: int, val2: int, operation: str):
 async def algebra(val1: int, var1: str, val2: int, var2: str, operation: str, result: int):
     algebra = Algebra(val1, var1, val2, var2, operation, result)
     obj = {"result": algebra.calculate()}
-    print(obj)
     return obj
     
 

@@ -19,7 +19,7 @@ class Algebra(Equation):
             self.operation = "/"
         if self.var1 == self.var2:
             var1_sym = sympy.symbols(f'{self.var1}')
-            solution = sympy.solve(f'{self.val1}*{self.var1} {self.operation} {self.val2}*{self.var2} - {self.result}', (var1_sym))
+            solution = sympy.solve(f'{self.val1}*{self.var1} {self.operation} {self.val2}*{self.var2} - {self.result}', var1_sym)
             return str(solution[0])
         else:
             var1_sym, var2_sym = sympy.symbols(f'{self.var1} {self.var2}')
