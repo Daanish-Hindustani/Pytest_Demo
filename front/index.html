@@ -10,26 +10,34 @@
        <div class="calc__div">
             <input id="input1" type="number" placeholder="input number">
             <select id="operations">
-                <option value="add">Add</option>
-                <option value="subtract">Subtract</option>
-                <option value="multiply">Multiply</option>
-                <option value="divide">Divide</option>
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
             </select>
             <input id="input2" type="number" placeholder="input number">
-            <button id="submit" onclick="calc_solve()">SUBMIT</button>
+            <button id="submit" onclick="calc_solve()">CALCULATE</button>
        </div>
        <div class="algebra__div">
             <input id="input3" type="text" placeholder="input number">
+            <select id="variable1">
+                <option value="x">x</option>
+                <option value="y">y</option>
+            </select>
             <select id="operations2">
-                <option value="add">Add</option>
-                <option value="subtract">Subtract</option>
-                <option value="multiply">Multiply</option>
-                <option value="divide">Divide</option>
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
             </select>
             <input id="input4" type="text" placeholder="input number">
+            <select id="variable2">
+                <option value="x">x</option>
+                <option value="y">y</option>
+            </select>
             =
             <input id="input5" type="number" placeholder="input result">
-            <button id="submit" onclick="algebra_solve()">SUBMIT</button>
+            <button id="submit" onclick="algebra_solve()">CALCULATE</button>
        </div>
        <div id="result__div">
         
@@ -39,16 +47,16 @@
         async function calc_solve() {
             const result = await fetch(`http://localhost:8000/calc/${document.getElementById("input1").value}/${document.getElementById("input2").value}/${document.getElementById("operations").value}`);
             const data = await result.json();
-            console.log(data.result)
+            console.log(data)
             document.getElementById("result__div").textContent = `RESULT IS ${data.result}`;
             
         }
 
         async function algebra_solve() {
-            const result = await fetch(`http://localhost:8000/algebra/${document.getElementById("input3").value}/${document.getElementById("input4").value}/${document.getElementById("operations2").value}/${document.getElementById("input5").value}`);
+            const result = await fetch(`http://localhost:8000/algebra/${document.getElementById("input3").value}/${document.getElementById("variable1").value}/${document.getElementById("input4").value}/${document.getElementById("variable2").value}/${document.getElementById("operations2").value}/${document.getElementById("input5").value}`);
             const data = await result.json();
-            console.log(data.result)
-            document.getElementById("result__div").textContent = `RESULT IS ${data.result}`;
+            const v = document.getElementById("variable1").value;
+            document.getElementById("result__div").textContent = `${v} = ${data.result}`;
         }
     </script>
 </body>

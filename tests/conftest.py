@@ -20,4 +20,4 @@ def sample_equation():
 
 @pytest.fixture
 def sample_algebra():
-    return Algebra('10x', '5x', 'multiply', 50)
+    return Algebra(10, 'x', 5, 'x', 'multiply', 50)

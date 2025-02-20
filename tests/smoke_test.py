@@ -9,6 +9,6 @@ def test_smoke_calc(client):
     assert "result" in response.json()
 
 def test_smoke_algebra(client):
-    response = client.get("/algebra/5x/5x/multiply/25")
+    response = client.get("/algebra/5/x/5/x/multiply/25")
     assert response.status_code == 200
-    assert "result: x = " in response.json()
+    assert "result" in response.json()
