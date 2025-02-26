@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="main__div">
+        <h1>PYTEST DEMO</h1>
         <span>BASIC CALC</span>
        <div class="calc__div">
             <input id="input1" type="number" placeholder="input number">
@@ -45,6 +46,8 @@
        <div id="result__div">
         
        </div>
+       <h2>PYTEST CODE</h2>
+       <button id="pytest" onclick="get_pytests()">pytest</button>
     </div>
     <script>
         async function calc_solve() {
@@ -60,6 +63,10 @@
             const data = await result.json();
             const v = document.getElementById("variable1").value;
             document.getElementById("result__div").textContent = `${v} = ${data.result}`;
+        }
+
+        async function get_pytests(){
+
         }
     </script>
 </body>
